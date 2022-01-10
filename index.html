@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/all.css">
+    <script src="js/vue_3.2.19.js"></script>
+    <script src="js/data.js"></script>
+    <title>Document</title>
+</head>
+<!-- background-image: url(imgList.mainBg); -->
+
+<body>
+    <div class="indexBox" id="indexBox">
+        <div class="mainBg" :style="getbgi(imgList.mainBg)"></div>
+
+        <!-- ===== heand start ===== -->
+        <div class="heand">
+            <div class="logo">
+                <img :src="imgList.logo">
+            </div>
+            <div class="link">
+                <a href="#">
+                    <div class="txt">聯繫我們</div>
+                    <div class="icon">
+                        <img src="images/kefu.svg">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ===== slogBox start ===== -->
+        <div class="slogBox">
+            <img :src="imgList.slog">
+        </div>
+
+        <!-- ===== dlBox start ===== -->
+        <div class="dlBox">
+            <div class="dlMain">
+                <a :href="download.main.href">
+                    <div>
+                        <div class="icon love"></div>
+                        <p>{{download.main.title}}</p>
+                        <div class="icon love"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="dlList">
+                <!-- 安卓下載 -->
+                <ul>
+                    <template v-for="(item,index) in download.android">
+                        <li>
+                            <a :href="item.href">
+                                <div>
+                                    <div class="icon an"></div>
+                                    <p>{{item.title}}</p>
+                                </div>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+
+                <!-- 蘋果下載點 -->
+                <ul>
+                    <template v-for="(item,index) in download.ios">
+                        <li>
+                            <a :href="item.href">
+                                <div>
+                                    <div class="icon ios"></div>
+                                    <p>{{item.title}}</p>
+                                </div>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    imgList: imgList,
+                    download: dlList,
+                };
+            },
+            methods: {
+                getbgi(data) {
+                    return `background-image: url(${data})`;
+                }
+            },
+            mounted() {},
+        }).mount("#indexBox");
+    </script>
+
+</body>
+
+</html>

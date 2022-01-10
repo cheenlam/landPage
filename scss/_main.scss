@@ -1,0 +1,146 @@
+img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.indexBox {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 20px 0;
+    position: relative;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        @include pos(tl, 0);
+        background-color: rgb(39, 13, 87);
+        opacity: 0.6;
+    }
+    .mainBg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: no-repeat center top/ cover;
+        z-index: -1;
+    }
+    // ===== heand start =====
+    @at-root .heand {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto 10vh;
+        padding: 0 10px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+            width: 120px;
+        }
+        .link {
+            a {
+                color: #fff;
+                display: flex;
+                align-items: center;
+                letter-spacing: 1px;
+                font-weight: bold;
+                font-size: 14px;
+                cursor: pointer;
+                opacity: 0.7;
+            }
+            .icon {
+                width: 22px;
+                margin-left: 10px;
+            }
+        }
+    }
+    // ===== slogBox start =====
+    @at-root .slogBox {
+        width: calc(100vw - 40px);
+        max-width: 1000px;
+        margin: 0 auto 5vh;
+        opacity: 0.4;
+    }
+    // ===== dlBox start =====
+    .dlBox {
+        position: relative;
+        z-index: 2;
+        .dlMain {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            p {
+                margin: 0 5px;
+            }
+        }
+        .dlList {
+            max-width: 450px;
+            margin: auto;
+            @include rwd(500) {
+                display: flex;
+                justify-content: center;
+            }
+            p {
+                margin-left: 5px;
+            }
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                @include rwd(500) {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+            }
+            li {
+                width: calc(100% / 3);
+                padding: 5px;
+                @include rwd(500) {
+                    width: 100%;
+                }
+            }
+        }
+        a {
+            opacity: 0.6;
+            padding: 15px 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-block;
+            transition: .3s;
+            @include hover {
+                &:hover {
+                    opacity: 1;
+                }
+            }
+            &:active {
+                opacity: 1;
+            }
+            div {
+                display: flex;
+                align-items: center;
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+        .icon {
+            width: 24px;
+            height: 24px;
+            background: no-repeat center / cover;
+            &.love {
+                background-image: url(../images/love.png);
+            }
+            &.an {
+                background-image: url(../images/android.png);
+            }
+            &.ios {
+                background-image: url(../images/apple.png);
+            }
+        }
+    }
+}
